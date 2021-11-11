@@ -34,12 +34,12 @@ const Navigation = () => {
           <div className={classes.navlinks}>
             <div className={classes.link}>
               <Link href='/'>
-                About
+                ABOUT
               </Link>
             </div>
             <div className={classes.link}>
               <Link href='/store'>
-                Store
+                STORE
               </Link>
             </div>
           </div>
