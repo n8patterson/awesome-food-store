@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Link from 'next/link';
 import { Box, AppBar, Toolbar, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
@@ -38,7 +37,7 @@ const Navigation = () => {
               </Link>
             </div>
             <div className={classes.link}>
-              <Link href='/store'>
+              <Link href='/stores'>
                 STORE
               </Link>
             </div>
