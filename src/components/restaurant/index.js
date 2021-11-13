@@ -21,13 +21,14 @@ const Restaurant = ({
     <Dialog open={open}>
       <DialogTitle className={styles.title}>
         {selectedRestaurantName}
-        <IconButton
-          aria-label='close'
-          onClick={onClick}
-          className={styles.closeButton}
-        >
-          <CloseIcon />
-        </IconButton>
+        <div className={styles.closeButton}>
+          <IconButton
+            aria-label='close'
+            onClick={onClick}
+          >
+            <CloseIcon />
+          </IconButton>
+        </div>
       </DialogTitle>
       <DialogContent>
         <Grid
