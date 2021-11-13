@@ -57,7 +57,9 @@ const Restaurant = ({
             <div className={styles.description}>
               {selectedRestaurantDescription}
             </div>
-            {selectedRestaurantUrl}
+            {selectedRestaurantUrl ? (
+              <a href={selectedRestaurantUrl}>{selectedRestaurantUrl}</a>
+            ) : (null)}
           </Grid>
         </Grid>
       </DialogContent>
