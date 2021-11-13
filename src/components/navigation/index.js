@@ -37,7 +37,7 @@ const Navigation = () => {
               </Link>
             </div>
             <div className={classes.link}>
-              <Link href='/stores'>
+              <Link href='/restaurants'>
                 STORE
               </Link>
             </div>

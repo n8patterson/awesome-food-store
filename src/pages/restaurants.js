@@ -1,14 +1,38 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import Image from 'next/image';
 import useSWR from 'swr';
 import { Grid, CircularProgress } from '@mui/material';
 import styles from '../styles/Home.module.css';
 import Navigation from '../components/Navigation';
+import Restaurant from '../components/restaurant';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const Store = () => {
+const Restaurants = () => {
   const { data, error } = useSWR('http://localhost:9000/stores', fetcher);
+
+  const [open, setOpen] = useState(false);
+
+  const onOpen = (restaurant) => {
+    setSelectedRestaurantId(restaurant.id);
+    setSelectedRestaurantName(restaurant.name);
+    setSelectedRestaurantImage(restaurant.image);
+    setSelectedRestaurantDescription(restaurant.description);
+    setSelectedRestaurantUrl(restaurant.url);
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
+  const [selectedRestaurantId, setSelectedRestaurantId] = useState(null);
+  const [selectedRestaurantName, setSelectedRestaurantName] = useState('');
+  const [selectedRestaurantImage, setSelectedRestaurantImage] = useState('');
+  const [selectedRestaurantDescription, setSelectedRestaurantDescription] = useState('');
+  const [selectedRestaurantUrl, setSelectedRestaurantUrl] = useState('');
+
 
   return (
     <div className={styles.container}>
@@ -34,6 +58,7 @@ const Store = () => {
                   xs={1}
                   key={restaurant.index}
                   className={styles.grid}
+                  onClick={() => onOpen(restaurant)}
                 >
                   <article className={styles.card}>
                     <Image
@@ -50,6 +75,15 @@ const Store = () => {
             <CircularProgress />
           )}
         </Grid>
+        <Restaurant
+          onClick={onClose}
+          open={open}
+          selectedRestaurantId={selectedRestaurantId}
+          selectedRestaurantName={selectedRestaurantName}
+          selectedRestaurantDescription={selectedRestaurantDescription}
+          selectedRestaurantImage={selectedRestaurantImage}
+          selectedRestaurantUrl={selectedRestaurantUrl}
+        />
       </main>
 
       <footer className={styles.footer}>
@@ -65,4 +99,4 @@ const Store = () => {
   );
 };
 
-export default Store;
+export default Restaurants;
