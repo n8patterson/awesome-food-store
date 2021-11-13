@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 import CloseIcon from '@mui/icons-material/Close';
-import styles from '../../styles/Home.module.css';
+import styles from './Restaurant.module.css';
 
 const Restaurant = ({
   onClick,
@@ -23,13 +23,8 @@ const Restaurant = ({
         {selectedRestaurantName}
         <IconButton
           aria-label='close'
-          s
           onClick={onClick}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-          }}
+          className={styles.closeButton}
         >
           <CloseIcon />
         </IconButton>
@@ -50,8 +45,8 @@ const Restaurant = ({
             <Image
               src={selectedRestaurantImage}
               alt=''
-              width='200'
-              height='200'
+              width='300'
+              height='300'
             />
             </div>
             <div className={styles.description}>

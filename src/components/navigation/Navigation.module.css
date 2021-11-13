@@ -1,0 +1,22 @@
+.container {
+  flex-grow: 1;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navlinks {
+  display: flex;
+}
+
+.logo {
+  flex-grow: 1;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+  margin-left: 50px;
+}
